@@ -9,7 +9,7 @@
 Build of product 'ReviewServer' complete! (0.12s)
 Running at 8080
 ```
-после этого становится доступен сервер по адресу `http://localhost:8080` и описаные ниже роуты.
+после этого становится доступен сервер по адресу `http://localhost:8080` и описанные ниже роуты.
 
 ### API
 #### GET: /restaurants
