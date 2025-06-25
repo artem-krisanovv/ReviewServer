@@ -6,10 +6,10 @@ struct Reviews: Codable {
 struct Review: Codable {
     let id: Int
     let text: String
-    let photo_review: Int?
+    let photo_review: PhotoReview?
     let created: String
     let rating: Int
-    let user: Int
+    let user: User
 }
 
 struct User: Codable {

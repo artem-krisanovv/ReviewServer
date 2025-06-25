@@ -1,25 +1,27 @@
 
 let reviews = Reviews(items: ReviewsData.review, count: ReviewsData.review.count)
 
+
 struct ReviewsData {
+
     static let review = [
         //M
         Review(
             id: 1,
             text: "Кроссовки хорошие. Удобные. Как по мне сшиты.",
-            photo_review: 1,
+            photo_review: returnPhotoReview(id: 1),
             created: "1 час назад",
             rating: 5,
-            user: 1
+            user: returnUser(id: 1)
         ),
         //W
         Review(
             id: 2,
             text: "Скользские ужасно.",
-            photo_review: 2,
+            photo_review: returnPhotoReview(id: 2),
             created: "12 минут назад",
             rating: 3,
-            user: 2
+            user: returnUser(id: 2)
         ),
         //W
         Review(
@@ -28,34 +30,34 @@ struct ReviewsData {
             photo_review: nil,
             created: "35 минут назад",
             rating: 4,
-            user: 3
+            user: returnUser(id: 3)
         ),
         //M
         Review(
             id: 4,
             text: "Отлично подошли под повседневную носку — работа, магазин, прогулка. Держат форму, не пахнут, при этом удивительно лёгкие. Я бы сказал, даже легче, чем ожидал, нога вообще не чувствует усталости. Ткань дышит, ноги после дня не мокрые и не «парятся». Шнурки, правда, могли бы быть крепче — начали пушиться после недели. Но в остальном — больше плюсов, чем минусов. Возьму вторую пару на запас, пока скидка есть.",
-            photo_review: 2,
+            photo_review: returnPhotoReview(id: 4),
             created: "минуту назад",
             rating: 5,
-            user: 4
+            user: returnUser(id: 4)
         ),
         //M
         Review(
             id: 5,
             text: "Cкользковатые",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 5),
             created: "только что",
             rating: 5,
-            user: 5
+            user: returnUser(id: 5)
         ),
         //M
         Review(
             id: 5,
             text: "Ребёнок жалуется, что очень скользские.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 6),
             created: "15 минут назад",
             rating: 1,
-            user: 5
+            user: returnUser(id: 6)
         ),
         //M
         Review(
@@ -64,142 +66,142 @@ struct ReviewsData {
             photo_review: nil,
             created: "вчера в 12:39",
             rating: 2,
-            user: 5
+            user: returnUser(id: 7)
         ),
         //M
         Review(
             id: 5,
             text: "Скользские ужасно.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 8),
             created: "12 минут назад",
             rating: 3,
-            user: 5
+            user: returnUser(id: 8)
         ),
         //W
         Review(
             id: 5,
             text: "Очень лёгкие и удобные. Подошли идеально на прогулки и фитнес!",
-            photo_review: 5,
+            photo_review: returnPhotoReview(id: 9),
             created: "20 минут назад",
             rating: 5,
-            user: 5
+            user: returnUser(id: 9)
         ),
         //W
         Review(
             id: 5,
             text: "Потрясающие кроссовки — удобные, легкие, дышащие. Даже после долгих прогулок ноги не устают. Подошли идеально по размеру, и смотрятся очень стильно. Уже думаю заказать вторую пару.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 10),
             created: "вчера в 12:00",
             rating: 5,
-            user: 5
+            user: returnUser(id: 10)
         ),
         //W
         Review(
             id: 5,
             text: "Красивая модель, но на деле разочаровали. После недели носки начала отходить подошва, а ткань порвалась у пальца. За такие деньги ожидала куда большего.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 11),
             created: "10 минут назад",
             rating: 2,
-            user: 5
+            user: returnUser(id: 11)
         ),
         //M
         Review(
             id: 5,
             text: "Материалы качественные, нога в них 'дышит', не потеет. Удобны как для прогулок, так и для лёгких пробежек. Цвет немного маркий, но прост в уходе — протер, и как новые.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 12),
             created: "35 минут назад",
             rating: 5,
-            user: 5
+            user: returnUser(id: 12)
         ),
         //D
         Review(
             id: 5,
             text: "Купили дочке — сначала была в восторге: яркие, с блёстками, лёгкие. Но уже через две недели ткань на носке начала рваться. Ребёнок, конечно, активно бегает и прыгает, но мы рассчитывали на большее. Цена далеко не самая низкая, а носить толком нечего. Попробуем заклеить, но это не выход. Сама модель удачная, подошва мягкая и нескользкая. Жаль, что не хватило прочности.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 13),
             created: "только что",
             rating: 5,
-            user: 5
+            user: returnUser(id: 13)
         ),
         //Yn
         Review(
             id: 5,
             text: "Очень универсальные — я купила себе, потом взяла такие же мужу, теперь ищем детский размер. Все довольны, вся семья в одном стиле!",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 14),
             created: "только что",
             rating: 5,
-            user: 5
+            user: returnUser(id: 14)
         ),
         //W
         Review(
             id: 5,
             text: "Уже несколько месяцев почти не снимаю их. Подошли и к джинсам, и к спортивному костюму. Очень комфортные в машине, на прогулках и в торговом центре — универсальная вещь",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 15),
             created: "только что",
             rating: 5,
-            user: 5
+            user: returnUser(id: 15)
         ),
         //W
         Review(
             id: 5,
             text: "Купил для спортзала — и пожалел. Слишком мягкие, нога скользит при выпадах. Амортизации нет, пятка болит. Лучше бы добавили жесткости в подошву.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 16),
             created: "1 минуту назад",
             rating: 5,
-            user: 5
+            user: returnUser(id: 16)
         ),
         //M
         Review(
             id: 5,
             text: "Кроссовки просто супер по дизайну — яркие, стильные, сразу притягивают взгляды. Но вот по комфорту… сложно. Нога 'плавает', особенно если долго ходить. Через час прогулки начали натирать большой палец, пришлось переклеивать пластырем. Очень жаль — хотела носить в поездке, но теперь сомневаюсь. Хотя, может, подойдут кому-то с узкой стопой. Сейчас лежат в шкафу, не знаю, что с ними делать. Цена у них была совсем не из бюджетных, кстати.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 17),
             created: "1 час назад",
             rating: 5,
-            user: 5
+            user: returnUser(id: 17)
         ),
         //W
         Review(
             id: 5,
             text: "Сын доволен — бегает в них на уличной площадке, дома и даже в магазин в них ходить хочет. Единственный минус — не отстирываются следы от травы. Но удобство для него важнее.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 18),
             created: "только что",
             rating: 5,
-            user: 5
+            user: returnUser(id: 18)
         ),
         //M
         Review(
             id: 5,
             text: "Люблю простую классику, и эти кроссовки — как раз то, что надо. Без лишних деталей, удобные, лёгкие. Как будто под мою ногу шили.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 19),
             created: "3 часа назад",
             rating: 5,
-            user: 5
+            user: returnUser(id: 19)
         ),
         //M
         Review(
             id: 5,
             text: "Держат форму даже после стирки, не развалились. Честно, ожидал худшего — приятно удивлён. Советую для повседневной носки, особенно летом.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 20),
             created: "только что",
             rating: 5,
-            user: 5
+            user: returnUser(id: 20)
         ),
         //M
         Review(
             id: 5,
             text: "Уже несколько месяцев почти не снимаю их. Подошли и к джинсам, и к спортивному костюму. Очень комфортные в машине, на прогулках и в торговом центре — универсальная вещь!",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 21),
             created: "только что",
             rating: 5,
-            user: 5
+            user: returnUser(id: 21)
         ),
         //m
         Review(
             id: 5,
             text: "На вид яркие и веселые, но оказались довольно тяжеловаты. Ребёнок быстро устаёт на прогулке. Возможно, подойдут детям постарше или крепче.",
-            photo_review: 4,
+            photo_review: returnPhotoReview(id: 22),
             created: "вчера в 17:40",
             rating: 5,
-            user: 5
+            user: returnUser(id: 22)
         ),
     ]
 
@@ -210,6 +212,7 @@ struct ReviewsData {
             last_name: "Петров",
             avatar_url: "https://cdn1.flamp.ru/2371df6e47dc1201deeb6f235a32a54f.jpg"
         ),
+
         User(
             id: 2,
             first_name: "Екатерина",
@@ -357,7 +360,7 @@ struct ReviewsData {
         ),
     ]
 
-    let photos = [
+    static let photos = [
         PhotoReview(
             id: 1,
             photo_review: [
@@ -415,4 +418,17 @@ struct ReviewsData {
             ]
         ),
     ]
+}
+
+extension ReviewsData {
+    static func returnPhotoReview(id: Int) -> PhotoReview? {
+        return ReviewsData.photos.first(where: { $0.id == id })
+    }
+
+    static func returnUser(id: Int) -> User {
+        guard let user = ReviewsData.user.first(where: { $0.id == id }) else {
+            fatalError()
+        }
+        return user
+    }
 }
