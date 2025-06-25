@@ -7,10 +7,10 @@ struct TemplateReviews {
         Review(
             id: 0,
             text: "",
-            photo_review: 0,
+            photo_review: nil,
             created: "",
             rating: 0,
-            user: 0
+            user: userTemplate[0]
         )
     ]
 

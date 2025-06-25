@@ -6,6 +6,7 @@ struct ReviewsRoute {
         server.GET["/"] = { _ in
             return HttpResponse.ok(.text("Сервер работает. Перейдите на /reviews"))
         }
+
             /// Параметры:
             /// user — фильтрация по ID пользователя
             /// id — конкретный отзыв
@@ -16,16 +17,16 @@ struct ReviewsRoute {
 
             if let userIdString = request.queryParams.first(where: { $0.0 == "user" })?.1,
                let userId = Int(userIdString) {
-            result = ReviewsData.review.filter { $0.user == userId }
+                result = result.filter { $0.user.id == userId }
 
             } else if let idString = request.queryParams.first(where: { $0.0 == "id" })?.1,
                       let reviewId = Int(idString),
-                      let review = ReviewsData.review.first(where: { $0.id == reviewId }) {
+                      let review = result.first(where: { $0.id == reviewId }) {
                 result = [review]
             }
 
-            let responceObject = Reviews(items: result, count: result.count)
-            return response(responceObject)
+            let responseObject = Reviews(items: result, count: result.count)
+            return response(responseObject)
         }
     }
 }
