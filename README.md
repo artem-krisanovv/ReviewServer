@@ -117,6 +117,4 @@ curl http://localhost:8080/reviews?user=1
 
 **Ошибка Swift**: Убедитесь, что Swift установлен корректно, необходима версия Swift 6.1.0 или новее для macOS. Подробнее: https://swift.org/download/ Для обновления использовать:
    ```bash
- export TOOLCHAINS=swift 
-    ```
-    ```
+ export TOOLCHAINS=swift
