@@ -115,6 +115,6 @@ curl http://localhost:8080/reviews?user=1
 
 **Порт занят**: Измените порт в `Sources/main.swift` или остановите процесс на порту 8080
 
-**Ошибка Swift**: Убедитесь, что Swift установлен корректно, необходима версия Swift 6.1.0 или новее для macOS. Подробнее: https://swift.org/download/ Для обновления использовать:
+**Ошибка Swift**: Убедитесь, что Swift установлен корректно, необходима версия Swift 6.1.0 или новее для macOS: https://swift.org/download/ 
    ```bash
  export TOOLCHAINS=swift
