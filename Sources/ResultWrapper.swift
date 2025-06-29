@@ -4,14 +4,14 @@ import Swifter
 enum ResultData<T: Encodable>: Encodable {
     case success(T)
     case failure
-
+    
     func encode(to encoder: any Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-            case .success(let value):
-                try container.encode(value)
-            case .failure:
-                try container.encodeNil()
+        case .success(let value):
+            try container.encode(value)
+        case .failure:
+            try container.encodeNil()
         }
     }
 }
@@ -20,13 +20,13 @@ struct ResultWrapper<T: Encodable>: Encodable {
     let data: ResultData<T>
     let isSuccess: Bool
     let errorMessage: String?
-
+    
     init(data: T) {
         self.data = .success(data)
         self.isSuccess = true
         self.errorMessage = nil
     }
-
+    
     init(error: String) where T == AnyEncodable {
         self.data = .failure
         self.isSuccess = false
@@ -36,11 +36,11 @@ struct ResultWrapper<T: Encodable>: Encodable {
 
 struct AnyEncodable: Encodable {
     private let _encode: (Encoder) throws -> Void
-
+    
     init<T: Encodable>(wrapped: T) {
         _encode = wrapped.encode
     }
-
+    
     func encode(to encoder: any Encoder) throws {
         try _encode(encoder)
     }
@@ -51,7 +51,7 @@ func response<T: Encodable>(_ result: T, code: Int = 200, error: String = "") ->
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let jsonData: Data
-
+        
         if code == 200 {
             jsonData = try encoder.encode(ResultWrapper(data: result))
         } else {

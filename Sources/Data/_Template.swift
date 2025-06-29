@@ -22,6 +22,4 @@ struct TemplateReviews {
             avatar_url: ""
         )
     ]
-
-    
 }
